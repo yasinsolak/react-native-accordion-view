@@ -21,12 +21,8 @@ This is a long description.
 
 ## Background
 
-## Install
-
-This module depends upon a knowledge of [Markdown]().
-
-```
-```
+# Install
+`npm install react-native-accordion-view`
 
 ## Usage
 
