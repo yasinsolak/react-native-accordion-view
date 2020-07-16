@@ -33,4 +33,4 @@ See [the contributing file](CONTRIBUTING.md)!
 
 ## License
 
-[MIT © Yasin Solak](../LICENSE)
+[MIT] © Yasin Solak(../LICENSE)
