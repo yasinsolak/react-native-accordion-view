@@ -1,6 +1,6 @@
 {
   "name": "react-native-accordion-view",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "react-native-accordion-view",
   "main": "index.tsx",
   "module": "index.tsx",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/yasinsolak/react-native-accordion-view"
   },
   "keywords": [
     "react-native"
   ],
   "author": "Yasin Solak",
-  "license": "",
+  "license": "MIT",
   "dependencies": {
     "react": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
