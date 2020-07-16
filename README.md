@@ -22,7 +22,9 @@ This is a long description.
 ## Background
 
 # Install
-`npm install react-native-accordion-view`
+`$ npm install react-native-accordion-view`
+  or
+`$ yarn add react-native-accordion-view`
 
 ## Usage
 
