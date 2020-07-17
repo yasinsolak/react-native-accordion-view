@@ -49,6 +49,9 @@ export default function App() {
 }
 ```
 
+
+![gif2](https://user-images.githubusercontent.com/40208646/87802146-6e83d700-c859-11ea-8334-94cfa3c7a726.gif)
+
 ```
  <AccordionView
       open={open2}
@@ -69,13 +72,6 @@ export default function App() {
       //.....
   </AccordionView>
 ```
-
-Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
-
-
-## Contributing
-
-See [the contributing file](CONTRIBUTING.md)!
 
 ## License
 
