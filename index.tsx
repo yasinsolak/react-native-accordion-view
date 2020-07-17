@@ -23,10 +23,9 @@ interface ListProps {
   headerStyle?: ViewStyle;
   subContainerStyle?: ViewStyle;
   children?: ReactNode;
-  borderRadius?: number;
+  containerRadius?: number;
   iconSize?: number;
   rightIcon?: boolean;
-  rightComponent?: ReactNode;
   open: boolean;
   onPress: () => void;
   style?: ViewStyle;
@@ -63,7 +62,7 @@ export default ({
   style,
   headerComponent,
   timingTransition = 400,
-  borderRadius = 0,
+  containerRadius = 0,
 }: ListProps) => {
   const [containerHeight, setContainerHeight] = useState<number | null>(null);
   const transition = useTimingTransition(open, { duration: timingTransition });
@@ -73,8 +72,8 @@ export default ({
     }
   }
   const bottomRadius = interpolate(transition, {
-    inputRange: [0, borderRadius / 400],
-    outputRange: [borderRadius, 0],
+    inputRange: [0, containerRadius / 400],
+    outputRange: [containerRadius, 0],
   });
   const height = bInterpolate(transition, 0, containerHeight ?? 0);
   return (
@@ -87,8 +86,8 @@ export default ({
             {
               borderBottomLeftRadius: bottomRadius,
               borderBottomRightRadius: bottomRadius,
-              borderTopLeftRadius: borderRadius,
-              borderTopRightRadius: borderRadius,
+              borderTopLeftRadius: containerRadius,
+              borderTopRightRadius: containerRadius,
             },
           ]}
         >
@@ -107,8 +106,8 @@ export default ({
             styles.item,
             subContainerStyle,
             {
-              borderBottomLeftRadius: borderRadius,
-              borderBottomRightRadius: borderRadius,
+              borderBottomLeftRadius: containerRadius,
+              borderBottomRightRadius: containerRadius,
             },
           ]}
         >

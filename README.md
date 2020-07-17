@@ -17,6 +17,20 @@ $ npm install react-native-accordion-view
 $ yarn add react-native-accordion-view
 ```
 
+Now we need to install react-native-reanimated.
+
+If you are using Expo, to ensure that you get the compatible versions of the libraries, run:
+
+```
+expo install react-native-reanimated
+```
+
+If you are not using Expo, run the following:
+
+```
+yarn add react-native-reanimated
+```
+
 ## Usage
 ![gif1](https://user-images.githubusercontent.com/40208646/87800185-bc4b1000-c856-11ea-8620-0ffbe033f87c.gif)
 ```
@@ -70,6 +84,22 @@ export default function App() {
       //.....
   </AccordionView>
 ```
+
+## Props
+
+- **title** (string)
+- **titleStyle** (TextStyle) 
+- **rightIcon** (boolean default: false)
+- **iconSize** (number)
+- **headerStyle** (ViewStyle)
+- **subContainerStyle** (ViewStyle)
+- **style** (ViewStyle)
+- **headerComponent** (ReactNode)
+- **open** (boolean)
+- **onPress** (void)
+- **timingTransition** (number default:400) opening speed
+- **containerRadius** (number)
+
 
 ## License
 
