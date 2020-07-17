@@ -52,8 +52,8 @@ export default function App() {
 
 ```
  <AccordionView
-      open={open2}
-      onPress={() => setOpen2(!open2)}
+      open={open}
+      onPress={() => setOpen2(!open)}
       headerComponent={<HeaderComponent />}
       style={{ margin: 15 }}
       headerStyle={{
