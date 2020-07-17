@@ -1,8 +1,6 @@
 # react-native-accordion-view
 
-This is an example file with maximal choices selected.
-
-This is a long description.
+Simple accoridon view
 
 ## Table of Contents
 
