@@ -15,6 +15,8 @@ import {
   useTimingTransition,
 } from "react-native-redash";
 
+const { interpolate } = Animated;
+
 interface ListProps {
   title?: string;
   titleStyle?: TextStyle;
@@ -61,6 +63,7 @@ export default ({
   style,
   headerComponent,
   timingTransition = 400,
+  borderRadius = 0,
 }: ListProps) => {
   const [containerHeight, setContainerHeight] = useState<number | null>(null);
   const transition = useTimingTransition(open, { duration: timingTransition });
@@ -68,12 +71,27 @@ export default ({
     if (!containerHeight) {
       setContainerHeight(e.nativeEvent.layout.height);
     }
-  };
+  }
+  const bottomRadius = interpolate(transition, {
+    inputRange: [0, borderRadius / 400],
+    outputRange: [borderRadius, 0],
+  });
   const height = bInterpolate(transition, 0, containerHeight ?? 0);
   return (
     <View style={style}>
       <TouchableWithoutFeedback onPress={() => onPress()}>
-        <Animated.View style={[styles.container, headerStyle]}>
+        <Animated.View
+          style={[
+            styles.container,
+            headerStyle,
+            {
+              borderBottomLeftRadius: bottomRadius,
+              borderBottomRightRadius: bottomRadius,
+              borderTopLeftRadius: borderRadius,
+              borderTopRightRadius: borderRadius,
+            },
+          ]}
+        >
           {title ? <Text style={[titleStyle]}>{title}</Text> : headerComponent}
           {rightIcon ? (
             <Icon iconSize={iconSize} {...{ transition }} />
@@ -84,7 +102,18 @@ export default ({
         onLayout={handleOnLayout}
         style={[styles.items, { height }]}
       >
-        <View style={[styles.item, subContainerStyle]}>{children}</View>
+        <View
+          style={[
+            styles.item,
+            subContainerStyle,
+            {
+              borderBottomLeftRadius: borderRadius,
+              borderBottomRightRadius: borderRadius,
+            },
+          ]}
+        >
+          {children}
+        </View>
       </Animated.View>
     </View>
   );

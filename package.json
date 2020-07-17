@@ -1,6 +1,6 @@
 {
   "name": "react-native-accordion-view",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "react-native-accordion-view",
   "main": "index.tsx",
   "module": "index.tsx",
