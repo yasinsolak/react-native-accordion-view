@@ -1,6 +1,6 @@
 # react-native-accordion-view
 
-Simple accoridon view
+Simple accordion view
 
 ## Table of Contents
 

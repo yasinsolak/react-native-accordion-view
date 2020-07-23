@@ -11,5 +11,6 @@ web-build/
 .expo
 .expo-shared
 .vscode
+.yalc
 # macOS
 .DS_Store

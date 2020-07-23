@@ -1,6 +1,6 @@
 {
   "name": "react-native-accordion-view",
-  "version": "1.1.3",
+  "version": "1.1.6",
   "description": "react-native-accordion-view",
   "main": "index.tsx",
   "module": "index.tsx",
@@ -18,10 +18,10 @@
   "license": "MIT",
   "dependencies": {
     "react": "~16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native": "0.62.1",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-reanimated": "^1.9.0",
-    "react-native-redash": "9.1.1"
+    "react-native-redash": "^14.2.3"
   },
   "devDependencies": {
     "@types/react": "~16.9.41",
