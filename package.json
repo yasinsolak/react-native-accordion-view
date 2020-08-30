@@ -1,6 +1,6 @@
 {
   "name": "react-native-accordion-view",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "react-native-accordion-view",
   "main": "index.tsx",
   "module": "index.tsx",
@@ -16,9 +16,11 @@
   ],
   "author": "Yasin Solak",
   "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.3",
+    "react-native": ">=0.59.9"
+  },
   "dependencies": {
-    "react": "~16.11.0",
-    "react-native": "0.62.1",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-reanimated": "^1.9.0",
     "react-native-redash": "^14.2.3"
@@ -28,5 +30,16 @@
     "@types/react-native": "~0.62.13",
     "metro-react-native-babel-preset": "^0.63.0",
     "typescript": "~3.9.5"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
