@@ -1,6 +1,6 @@
 {
   "name": "react-native-accordion-view",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "react-native-accordion-view",
   "main": "index.tsx",
   "module": "index.tsx",
@@ -26,53 +26,7 @@
   "devDependencies": {
     "@types/react": "~16.9.41",
     "@types/react-native": "~0.62.13",
+    "metro-react-native-babel-preset": "^0.63.0",
     "typescript": "~3.9.5"
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es6": true,
-      "node": true
-    },
-    "extends": [
-      "plugin:react/recommended",
-      "universe"
-    ],
-    "globals": {
-      "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
-    },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 11,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint",
-      "react-hooks"
-    ],
-    "rules": {
-      "react/display-name": 0,
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "prettier/prettier": [
-        "warn",
-        {
-          "semi": false,
-          "singleQuote": true,
-          "jsxBracketSameLine": true,
-          "trailingComma": "none"
-        }
-      ]
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    }
   }
 }

@@ -1,9 +1,0 @@
-{
-  "version": "v1",
-  "packages": {
-    "react-native-accordion-view": {
-      "signature": "2f44bc66ed69085b98c0e470a56089ab",
-      "file": true
-    }
-  }
-}
