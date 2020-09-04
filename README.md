@@ -22,13 +22,13 @@ Now we need to install react-native-reanimated.
 If you are using Expo, to ensure that you get the compatible versions of the libraries, run:
 
 ```
-expo install react-native-reanimated
+expo install react-native-reanimated react-native-gesture-handler react-native-redash
 ```
 
 If you are not using Expo, run the following:
 
 ```
-yarn add react-native-reanimated
+yarn add react-native-reanimated react-native-gesture-handler react-native-redash
 ```
 
 ## Usage
