@@ -1,50 +1,53 @@
-import React, {useState, ReactNode} from 'react';
+import React, { useState, ReactNode } from 'react'
 import {
   StyleSheet,
   Text,
-  TouchableWithoutFeedback,
   View,
   LayoutChangeEvent,
   TextStyle,
   ViewStyle,
-  Image,
-} from 'react-native';
-import Animated from 'react-native-reanimated';
-import {useTimingTransition, mix} from 'react-native-redash';
+  TouchableOpacity,
+  Image
+} from 'react-native'
+import Animated from 'react-native-reanimated'
+import { useTimingTransition, mix } from 'react-native-redash'
 
-const {interpolate} = Animated;
+import ArrowDown from './SVGComponents/ArrowDown'
+
+const { interpolate } = Animated
 
 interface ListProps {
-  title?: string;
-  titleStyle?: TextStyle;
-  headerStyle?: ViewStyle;
-  subContainerStyle?: ViewStyle;
-  children?: ReactNode;
-  containerRadius?: number;
-  iconSize?: number;
-  rightIcon?: boolean;
-  open: boolean;
-  onPress: () => void;
-  style?: ViewStyle;
-  headerComponent?: ReactNode;
-  timingTransition?: number;
+  title?: string
+  titleStyle?: TextStyle
+  headerStyle?: ViewStyle
+  subContainerStyle?: ViewStyle
+  children?: ReactNode
+  containerRadius?: number
+  iconSize?: number
+  rightIcon?: boolean
+  open: boolean
+  onPress: () => void
+  style?: ViewStyle
+  headerComponent?: ReactNode
+  timingTransition?: number,
+  activeOpacity?: number
 }
 interface ChevronProps {
-  transition: Animated.Node<number>;
-  fill?: string;
-  iconSize?: number;
+  transition: Animated.Node<number>
+  fill?: string
+  iconSize?: number
 }
-const Icon = ({transition, iconSize}: ChevronProps) => {
-  const rotateZ = mix(transition, Math.PI, 0);
+const Icon = ({ transition, iconSize }: ChevronProps) => {
+  const rotateZ = mix(transition, Math.PI, 0)
   return (
-    <Animated.View style={{transform: [{rotateZ}]}}>
+    <Animated.View style={{ transform: [{ rotateZ }] }}>
       <Image
         style={{width: iconSize, height: iconSize}}
         source={require('./ArrowDown.png')}
       />
     </Animated.View>
-  );
-};
+  )
+}
 
 export default ({
   title,
@@ -60,22 +63,23 @@ export default ({
   headerComponent,
   timingTransition = 400,
   containerRadius = 0,
+  activeOpacity = 1
 }: ListProps) => {
-  const [containerHeight, setContainerHeight] = useState<number | null>(null);
-  const transition = useTimingTransition(open, {duration: timingTransition});
+  const [containerHeight, setContainerHeight] = useState<number | null>(null)
+  const transition = useTimingTransition(open, { duration: timingTransition })
   const handleOnLayout = (e: LayoutChangeEvent) => {
     if (!containerHeight) {
-      setContainerHeight(e.nativeEvent.layout.height);
+      setContainerHeight(e.nativeEvent.layout.height)
     }
-  };
+  }
   const bottomRadius = interpolate(transition, {
     inputRange: [0, containerRadius / 400],
-    outputRange: [containerRadius, 0],
-  });
-  const height = mix(transition, 0, containerHeight ?? 0);
+    outputRange: [containerRadius, 0]
+  })
+  const height = mix(transition, 0, containerHeight ?? 0)
   return (
-    <View style={style}>
-      <TouchableWithoutFeedback onPress={() => onPress()}>
+    <>
+      <TouchableOpacity activeOpacity={activeOpacity} onPress={() => onPress()}>
         <Animated.View
           style={[
             styles.container,
@@ -84,31 +88,33 @@ export default ({
               borderBottomLeftRadius: bottomRadius,
               borderBottomRightRadius: bottomRadius,
               borderTopLeftRadius: containerRadius,
-              borderTopRightRadius: containerRadius,
-            },
+              borderTopRightRadius: containerRadius
+            }
           ]}>
           {title ? <Text style={[titleStyle]}>{title}</Text> : headerComponent}
           {rightIcon ? (
-            <Icon iconSize={iconSize} {...{transition}} />
+            <Icon iconSize={iconSize} {...{ transition }} />
           ) : undefined}
         </Animated.View>
-      </TouchableWithoutFeedback>
-      <Animated.View onLayout={handleOnLayout} style={[styles.items, {height}]}>
+      </TouchableOpacity>
+      <Animated.View
+        onLayout={handleOnLayout}
+        style={[styles.items, { height }]}>
         <View
           style={[
             styles.item,
             subContainerStyle,
             {
               borderBottomLeftRadius: containerRadius,
-              borderBottomRightRadius: containerRadius,
-            },
+              borderBottomRightRadius: containerRadius
+            }
           ]}>
           {children}
         </View>
       </Animated.View>
-    </View>
-  );
-};
+    </>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -116,15 +122,15 @@ const styles = StyleSheet.create({
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   items: {
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   item: {
     backgroundColor: 'white',
     justifyContent: 'space-between',
     paddingVertical: 8,
-    paddingHorizontal: 16,
-  },
-});
+    paddingHorizontal: 16
+  }
+})
